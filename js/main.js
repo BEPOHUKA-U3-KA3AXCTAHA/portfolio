@@ -11,15 +11,15 @@ const i18n = {
 
     /* Hero */
     hero_badge: 'Open to opportunities',
-    hero_desc:  'Python & Rust back-end engineer with 4 years of commercial experience. I design and build high-performance microservices, distributed systems, and trading platforms.',
+    hero_desc:  'Back-end developer specializing in Python and Rust with 4 years of commercial experience.',
     dl_label:   'Download Resume:',
     scroll_hint: 'Scroll down',
 
     /* About */
     about_tag:   'who i am',
     about_title: 'About Me',
-    about_p1:    'I am a back-end developer specializing in Python and Rust with 4 years of commercial experience. I build high-performance, scalable systems — from trading platforms and IoT services to market analytics and cargo control systems.',
-    about_p2:    'Graduated with a specialist degree in Computer Security. Practiced competitive programming during school years.',
+    about_p1:    'Back-end developer specializing in Python and Rust with 4 years of commercial experience.',
+    about_p2:    '',
     stat_exp:    'Years Experience',
     stat_proj:   'Commercial Projects',
     stat_en:     'English Level',
@@ -60,15 +60,15 @@ const i18n = {
 
     /* Hero */
     hero_badge: 'Открыт к предложениям',
-    hero_desc:  'Back-end разработчик на Python и Rust с коммерческим стажем 4 года. Проектирую и создаю высокопроизводительные микросервисы, распределённые системы и торговые платформы.',
+    hero_desc:  'Back-end разработчик на Python/Rust, коммерческий стаж 4 года.',
     dl_label:   'Скачать резюме:',
     scroll_hint: 'Прокрутить вниз',
 
     /* About */
     about_tag:   'кто я',
     about_title: 'Обо мне',
-    about_p1:    'Я back-end разработчик, специализирующийся на Python и Rust, с коммерческим стажем 4 года. Занимаюсь разработкой высоконагруженных масштабируемых систем — от торговых платформ и IoT-сервисов до аналитики рынка и систем контроля грузоперевозок.',
-    about_p2:    'Окончил специалитет по компьютерной безопасности. В школьные годы занимался спортивным программированием.',
+    about_p1:    'Back-end разработчик на Python/Rust, коммерческий стаж 4 года.',
+    about_p2:    '',
     stat_exp:    'Года опыта',
     stat_proj:   'Комм. проектов',
     stat_en:     'Уровень English',
@@ -136,11 +136,11 @@ const skillsData = [
     skills: ['Docker', 'Linux', 'Git', 'Bash', 'Keycloak', 'Swagger'],
   },
   {
-    name:  { en: 'APIs & Protocols', ru: 'API и протоколы' },
+    name:  { en: 'Protocols', ru: 'Протоколы' },
     icon:  '🔌',
     color: { bg: 'var(--pink-dim)', text: 'var(--pink)', border: 'rgba(236,72,153,.25)' },
     catColor: 'var(--pink)',
-    skills: ['REST API', 'WebSocket', 'MQTT', 'Swagger'],
+    skills: ['REST API', 'WebSocket'],
   },
 ];
 
