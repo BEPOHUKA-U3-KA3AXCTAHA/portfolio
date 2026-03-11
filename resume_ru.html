@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<style>
+@page {
+  size: A4;
+  margin: 14mm 16mm 14mm 16mm;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Times New Roman', 'DejaVu Serif', Georgia, serif;
+  font-size: 10pt;
+  line-height: 1.32;
+  color: #111;
+}
+a { color: #111; text-decoration: none; }
+
+/* ── HEADER ── */
+.header { text-align: center; margin-bottom: 6pt; }
+.name { font-size: 15pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5pt; margin-bottom: 3pt; }
+.contacts { font-size: 9.5pt; color: #222; }
+.contacts a { text-decoration: underline; }
+
+hr { border: none; border-top: 0.8pt solid #222; margin: 5pt 0 6pt; }
+
+/* ── SECTIONS ── */
+.section-title {
+  font-size: 11pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5pt;
+  letter-spacing: 0.3pt;
+}
+.subsection { margin-bottom: 6pt; }
+
+/* ── WORK ENTRIES ── */
+.entry { margin-bottom: 6pt; }
+.entry-header { margin-bottom: 2pt; }
+.entry-dates { font-weight: normal; }
+.entry-role { font-weight: bold; }
+
+.project-title { font-weight: bold; font-style: italic; display: inline; }
+.project-role { font-weight: bold; color: #333; }
+
+ul { margin-left: 18pt; margin-top: 1pt; margin-bottom: 3pt; }
+li { margin-bottom: 1pt; }
+
+/* ── SKILLS ── */
+.skills-block { margin-bottom: 4pt; }
+.skills-block p { margin-bottom: 1.5pt; }
+.skill-cat { font-weight: bold; }
+
+/* ── EDUCATION ── */
+.edu-entry { margin-bottom: 2pt; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="name">Сергей Сергеев, Back-end разработчик</div>
+  <div class="contacts">
+    Telegram: <a href="https://t.me/ultravert">@ultravert</a> &nbsp;|&nbsp;
+    Email: <a href="mailto:serzhserg98@gmail.com">serzhserg98@gmail.com</a> &nbsp;|&nbsp;
+    LinkedIn: <a href="https://www.linkedin.com/in/sergey-sergeev-9b47a33b5/">sergey-sergeev</a>
+  </div>
+</div>
+<hr/>
+
+<!-- О СЕБЕ -->
+<div class="subsection">
+  <div class="section-title">О себе</div>
+  <p>Back-end разработчик на Python/Rust, коммерческий стаж 4 года.</p>
+</div>
+<hr/>
+
+<!-- ОПЫТ РАБОТЫ -->
+<div class="subsection">
+  <div class="section-title">Опыт работы</div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-dates">2022 – наст. время:</span>&nbsp;
+      <span class="entry-role">Back-end разработчик / Технический лидер</span>, ООО «Интеллектуальные Решения», Россия.
+    </div>
+
+    <p style="margin-top:3pt"><span class="project-title">1. Сервис контроля насосного оборудования</span> — IoT-система мониторинга городского водоснабжения. <span class="project-role">Архитектор</span></p>
+    <ul>
+      <li>Спроектировал архитектуру системы с нуля, определив микросервисную модель взаимодействия для мониторинга и управления насосным оборудованием городского водоснабжения</li>
+      <li>Реализовал сервисы на Rust с MQTT-шиной для приёма, обработки и маршрутизации телеметрии</li>
+      <li>Добавил микросервис интеграции с погодными данными для климатического анализа</li>
+    </ul>
+
+    <p><span class="project-title">2. Сервисы мониторинга рынка и патентной чистоты</span> (для ЗАО «Фармфирма Сотекс») — <span class="project-role">Техлид</span></p>
+    <ul>
+      <li>Определял технические решения, проводил code review, контролировал качество кода и архитектурные принципы</li>
+      <li>Спроектировал архитектуру проекта с нуля (гексагональная), обеспечив масштабируемость и изоляцию доменной логики</li>
+      <li>Реализовал backend: FastAPI + Pydantic + SQLAlchemy (async), аутентификация Keycloak + Redis + JWT</li>
+      <li>Реализовал real-time мониторинг долгих операций через WebSocket</li>
+    </ul>
+
+    <p><span class="project-title">3. Система контроля грузоперевозок</span></p>
+    <ul>
+      <li>Разработал процесс проверки на возможность отзыва документов по ТС через RabbitMQ</li>
+      <li>Доработал backend для мобильного приложения водителя: маршруты, авторизация, этапность грузоперевозки, отслеживание отклонений</li>
+      <li>Доработал процесс архивации событий грузоперевозок</li>
+      <li>Реализовал отслеживание водителей на КПП через веб-интерфейс</li>
+    </ul>
+
+    <p><span class="project-title">4. WEB-интерфейс сервиса гранулометрии</span></p>
+    <ul>
+      <li>Оптимизировал механизм архивации и выгрузки исторических данных из системы</li>
+    </ul>
+
+    <p><span class="project-title">5. Платформа автоматической торговли фьючерсами</span> — микросервисная система алгоритмической торговли через API.</p>
+    <ul>
+      <li>Автоматизировал сбор и обработку рыночных данных с внешних торговых площадок через API</li>
+      <li>Разработал микросервис на Rust (Actix-web + Tokio) с бизнес-логикой торговых алгоритмов и асинхронной обработкой</li>
+      <li>Спроектировал механизм конфигурации алгоритмов с поддержкой параллельного выполнения</li>
+      <li>Реализовал систему учёта PnL и режим симуляции (paper trading) для валидации стратегий</li>
+      <li>Значительно повысил скорость выполнения торговых алгоритмов за счёт многопоточности, PyO3 и WebSocket, сократив время реакции (от изменения данных на торговой площадке до принятия торгового решения) с 2 секунд до 100 мс</li>
+    </ul>
+
+    <p><span class="project-title">6. Арбитраж валют</span> — платформа умного обмена валют с прибылью.</p>
+    <ul>
+      <li>Автоматизировал периодическую актуализацию валютных данных с различных обменных платформ на Python</li>
+      <li>Реализовал микросервис на Rust для обнаружения цепочек переводов на основе агрегированных валютных данных</li>
+      <li>Разработал backend веб-приложения, включая API для основных функциональных модулей</li>
+    </ul>
+
+  </div>
+
+  <div class="entry" style="margin-top:8pt">
+    <div class="entry-header">
+      <span class="entry-dates">2025:</span>&nbsp;
+      <span class="entry-role">Руководитель проекта / Back-end разработчик</span>, самостоятельный коммерческий проект (фриланс).
+    </div>
+
+    <p style="margin-top:3pt"><span class="project-title">Сервис управления криптовалютным портфелем</span></p>
+    <ul>
+      <li>Руководил backend-разработкой, координировал frontend/DevOps команду из 3 человек, взаимодействовал с заказчиком по требованиям и архитектуре</li>
+      <li>Спроектировал backend с нуля по гексагональной архитектуре, обеспечив масштабируемость и изоляцию бизнес-логики</li>
+      <li>Реализовал backend: FastAPI + Uvicorn, async SQLAlchemy, Dishka DI, aiohttp, PyJWT</li>
+    </ul>
+  </div>
+</div>
+<hr/>
+
+<!-- ТЕХНИЧЕСКИЕ НАВЫКИ -->
+<div class="subsection">
+  <div class="section-title">Технические навыки</div>
+  <div class="skills-block">
+    <p><span class="skill-cat">Python:</span> FastAPI, Flask, SQLAlchemy, Alembic, Pydantic, Asyncio, Pytest, Aiohttp, BeautifulSoup, Gevent, Threading, Multiprocessing, PyJWT, Psycopg2, Dishka</p>
+    <p><span class="skill-cat">Rust:</span> Actix-web, Tokio, SQLX, PyO3, Serde_json, Rayon, Rug</p>
+    <p><span class="skill-cat">Базы данных и очереди:</span> PostgreSQL, Redis, RabbitMQ, Apache Kafka, MQTT</p>
+    <p><span class="skill-cat">DevOps:</span> Docker, Linux, Git, Bash, Swagger, Keycloak</p>
+    <p><span class="skill-cat">Протоколы:</span> REST API, WebSocket</p>
+  </div>
+</div>
+<hr/>
+
+<!-- ОБРАЗОВАНИЕ -->
+<div class="subsection">
+  <div class="section-title">Образование</div>
+  <div class="edu-entry">2020 – 2026: <strong>Специалитет, «Компьютерная безопасность»</strong> (10.05.01), Саратовский национальный исследовательский государственный университет им. Н.Г. Чернышевского, Факультет компьютерных наук и ИТ.</div>
+</div>
+<hr/>
+
+<!-- ЯЗЫКИ -->
+<div class="subsection">
+  <div class="section-title">Языки</div>
+  <p><strong>Английский:</strong> B2 &nbsp;&nbsp; <strong>Русский:</strong> Родной</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<style>
+@page {
+  size: A4;
+  margin: 14mm 16mm 14mm 16mm;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Times New Roman', 'DejaVu Serif', Georgia, serif;
+  font-size: 10pt;
+  line-height: 1.32;
+  color: #111;
+}
+a { color: #111; text-decoration: none; }
+
+/* ── HEADER ── */
+.header { text-align: center; margin-bottom: 6pt; }
+.name { font-size: 15pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5pt; margin-bottom: 3pt; }
+.contacts { font-size: 9.5pt; color: #222; }
+.contacts a { text-decoration: underline; }
+
+hr { border: none; border-top: 0.8pt solid #222; margin: 5pt 0 6pt; }
+
+/* ── SECTIONS ── */
+.section-title {
+  font-size: 11pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5pt;
+  letter-spacing: 0.3pt;
+}
+.subsection { margin-bottom: 6pt; }
+
+/* ── WORK ENTRIES ── */
+.entry { margin-bottom: 6pt; }
+.entry-header { margin-bottom: 2pt; }
+.entry-dates { font-weight: normal; }
+.entry-role { font-weight: bold; }
+.entry-desc { font-style: normal; color: #222; }
+
+.project-title { font-weight: bold; font-style: italic; display: inline; }
+.project-role { font-weight: bold; color: #333; }
+
+ul { margin-left: 18pt; margin-top: 1pt; margin-bottom: 3pt; }
+li { margin-bottom: 1pt; }
+
+/* ── SKILLS ── */
+.skills-block { margin-bottom: 4pt; }
+.skills-block p { margin-bottom: 1.5pt; }
+.skill-cat { font-weight: bold; }
+
+/* ── EDUCATION ── */
+.edu-entry { margin-bottom: 2pt; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="name">Sergey Sergeev, Back-end Developer</div>
+  <div class="contacts">
+    Telegram: <a href="https://t.me/ultravert">@ultravert</a> &nbsp;|&nbsp;
+    Email: <a href="mailto:serzhserg98@gmail.com">serzhserg98@gmail.com</a> &nbsp;|&nbsp;
+    LinkedIn: <a href="https://www.linkedin.com/in/sergey-sergeev-9b47a33b5/">sergey-sergeev</a>
+  </div>
+</div>
+<hr/>
+
+<!-- PROFILE SUMMARY -->
+<div class="subsection">
+  <div class="section-title">Profile Summary</div>
+  <p>Back-end developer specializing in Python and Rust with 4 years of commercial experience.</p>
+</div>
+<hr/>
+
+<!-- WORK EXPERIENCE -->
+<div class="subsection">
+  <div class="section-title">Work Experience</div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-dates">2022 – Present:</span>&nbsp;
+      <span class="entry-role">Back-end Developer / Technical Lead</span>, OOO "Intellektualnye Resheniya", Russia.
+    </div>
+
+    <p style="margin-top:3pt"><span class="project-title">1. Pump Equipment Control Service</span> — IoT system for city water supply monitoring. <span class="project-role">Architect</span></p>
+    <ul>
+      <li>Designed system architecture from scratch, defining microservices interaction model for monitoring and managing pump equipment in city water supply</li>
+      <li>Implemented Rust services with MQTT bus for receiving, processing, and routing telemetry</li>
+      <li>Added weather data integration microservice for climate-aware analysis</li>
+    </ul>
+
+    <p><span class="project-title">2. Market Monitoring &amp; Patent Purity Services</span> (for ZAO "Pharmfirma Sotex") — <span class="project-role">Technical Lead</span></p>
+    <ul>
+      <li>Defined technical decisions, conducted code review, ensured code quality and architectural principles</li>
+      <li>Designed project architecture from scratch (hexagonal), ensuring scalability and domain logic isolation</li>
+      <li>Built backend: FastAPI + Pydantic + SQLAlchemy (async), authentication via Keycloak + Redis + JWT</li>
+      <li>Implemented real-time monitoring of long-running operations via WebSocket</li>
+    </ul>
+
+    <p><span class="project-title">3. Freight Control System</span></p>
+    <ul>
+      <li>Built document revocation verification process for vehicles using RabbitMQ queues</li>
+      <li>Extended driver mobile app backend: routing, authorization, shipment staging, deviation tracking</li>
+      <li>Improved shipment event archiving process</li>
+      <li>Implemented driver tracking at checkpoints via web interface</li>
+    </ul>
+
+    <p><span class="project-title">4. Granulometry Service Web Interface</span></p>
+    <ul>
+      <li>Optimized data archiving and historical data export mechanism</li>
+    </ul>
+
+    <p><span class="project-title">5. Automated Futures Trading Platform</span> — microservices-based system for algorithmic trading via external APIs.</p>
+    <ul>
+      <li>Automated collection and processing of market data from external trading platforms via API</li>
+      <li>Built Rust microservice (Actix-web + Tokio) implementing trading algorithm business logic with async processing</li>
+      <li>Designed algorithm configuration mechanism with parallel execution support</li>
+      <li>Implemented PnL tracking system and paper trading (simulation) mode for strategy validation</li>
+      <li>Significantly improved trading algorithm execution speed via multithreading, PyO3, and WebSocket, reducing reaction time (from market data change on exchange to trading decision) from 2 seconds to 100 ms</li>
+    </ul>
+
+    <p><span class="project-title">6. Currency Arbitrage Platform</span> — smart currency exchange platform.</p>
+    <ul>
+      <li>Automated periodic currency data aggregation from various exchange platforms using Python</li>
+      <li>Developed Rust microservice for detecting transfer chains based on aggregated currency data</li>
+      <li>Built web application backend including API for core functional modules</li>
+    </ul>
+
+  </div>
+
+  <div class="entry" style="margin-top:8pt">
+    <div class="entry-header">
+      <span class="entry-dates">2025:</span>&nbsp;
+      <span class="entry-role">Project Manager / Back-end Developer</span>, independent commercial project (freelance).
+    </div>
+
+    <p style="margin-top:3pt"><span class="project-title">Cryptocurrency Portfolio Management Service</span></p>
+    <ul>
+      <li>Led backend development, coordinated frontend/DevOps team of 3, managed client requirements and architecture</li>
+      <li>Designed backend from scratch using hexagonal architecture, ensuring scalability and business logic isolation</li>
+      <li>Built backend: FastAPI + Uvicorn, async SQLAlchemy, Dishka DI, aiohttp, PyJWT</li>
+    </ul>
+  </div>
+</div>
+<hr/>
+
+<!-- TECHNICAL SKILLS -->
+<div class="subsection">
+  <div class="section-title">Technical Skills</div>
+  <div class="skills-block">
+    <p><span class="skill-cat">Python:</span> FastAPI, Flask, SQLAlchemy, Alembic, Pydantic, Asyncio, Pytest, Aiohttp, BeautifulSoup, Gevent, Threading, Multiprocessing, PyJWT, Psycopg2, Dishka</p>
+    <p><span class="skill-cat">Rust:</span> Actix-web, Tokio, SQLX, PyO3, Serde_json, Rayon, Rug</p>
+    <p><span class="skill-cat">Databases &amp; Messaging:</span> PostgreSQL, Redis, RabbitMQ, Apache Kafka, MQTT</p>
+    <p><span class="skill-cat">DevOps:</span> Docker, Linux, Git, Bash, Swagger, Keycloak</p>
+    <p><span class="skill-cat">Protocols:</span> REST API, WebSocket</p>
+  </div>
+</div>
+<hr/>
+
+<!-- EDUCATION -->
+<div class="subsection">
+  <div class="section-title">Education</div>
+  <div class="edu-entry">2020 – 2026: <strong>Specialist Degree in Computer Security</strong> (10.05.01), Saratov National Research State University (N.G. Chernyshevsky), Faculty of Computer Science and IT.</div>
+</div>
+<hr/>
+
+<!-- LANGUAGES -->
+<div class="subsection">
+  <div class="section-title">Languages</div>
+  <p><strong>English:</strong> B2 &nbsp;&nbsp; <strong>Russian:</strong> Native</p>
+</div>
+
+</body>
+</html>
