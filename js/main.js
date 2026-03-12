@@ -126,14 +126,14 @@ const skillsData = [
     icon:  '🗄️',
     color: { bg: 'var(--green-dim)', text: 'var(--green)', border: 'rgba(16,185,129,.25)' },
     catColor: 'var(--green)',
-    skills: ['PostgreSQL', 'Redis', 'RabbitMQ', 'Apache Kafka'],
+    skills: ['PostgreSQL', 'Redis', 'RabbitMQ', 'Apache Kafka', 'MQTT'],
   },
   {
     name:  { en: 'APIs & Protocols', ru: 'API и протоколы' },
     icon:  '🔌',
     color: { bg: 'var(--pink-dim)', text: 'var(--pink)', border: 'rgba(236,72,153,.25)' },
     catColor: 'var(--pink)',
-    skills: ['REST API', 'WebSocket', 'MQTT', 'Swagger'],
+    skills: ['REST API', 'WebSocket', 'Swagger'],
   },
   {
     name:  { en: 'DevOps & Security', ru: 'DevOps & Security' },
