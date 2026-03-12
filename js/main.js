@@ -275,14 +275,13 @@ const projectsData = {
     },
   ],
 
-  personal: [
+  freelance: [
     {
       title: {
         en: 'Cryptocurrency Portfolio Management Service',
         ru: 'Сервис управления криптовалютным портфелем',
       },
-      company: { en: 'Independent commercial project (freelance), team of 3', ru: 'Самостоятельный коммерческий проект (фриланс), команда из 3 человек' },
-      period: { en: '2025', ru: '2025' },
+      company: { en: 'Independent commercial project (freelance)', ru: 'Самостоятельный коммерческий проект (фриланс)' },
       tags: ['FastAPI', 'Uvicorn', 'SQLAlchemy', 'Dishka', 'Aiohttp', 'PyJWT'],
       bullets: {
         en: [
@@ -327,7 +326,7 @@ function applyTranslations() {
 
   // Re-render dynamic sections
   renderSkills();
-  renderProjects(currentTab);
+  renderProjects();
 }
 
 /* ══════════════════════════════════════════
@@ -357,32 +356,11 @@ function renderSkills() {
 /* ══════════════════════════════════════════
    PROJECTS RENDERER
 ══════════════════════════════════════════ */
-function renderProjects(tab) {
-  currentTab = tab;
-  const grid = document.getElementById('projectsGrid');
-  const items = projectsData[tab];
-  const showMoreLabel = i18n[currentLang].show_more;
-  const showLessLabel = i18n[currentLang].show_less;
-
-  // Work tab: show company header
-  const workHeader = tab === 'work' ? `
-    <div class="project-card" style="animation-delay:0s;border-left:3px solid var(--accent);background:var(--card-alt, var(--card))">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-        <div>
-          <h3 style="font-size:1.1rem;font-weight:700;color:var(--text)">${currentLang === 'ru' ? 'ООО «Интеллектуальные Решения»' : 'OOO "Intellektualnye Resheniya"'}</h3>
-          <p style="font-size:.88rem;color:var(--text-muted);margin-top:2px">${currentLang === 'ru' ? 'Back-end разработчик / Технический лидер' : 'Back-end Developer / Technical Lead'}</p>
-        </div>
-        <span style="font-size:.85rem;color:var(--accent);font-weight:600">${currentLang === 'ru' ? '2022 — н.в.' : '2022 — Present'}</span>
-      </div>
-    </div>
-  ` : '';
-
-  grid.innerHTML = workHeader + items.map((proj, i) => {
+function renderProjectCards(items, tab, showMoreLabel, showLessLabel) {
+  return items.map((proj, i) => {
     const bullets     = proj.bullets[currentLang];
     const preview     = bullets.slice(0, 3);
     const extra       = bullets.slice(3);
-    const company     = typeof proj.company === 'object' ? proj.company[currentLang] : proj.company;
-    const period      = proj.period ? (typeof proj.period === 'object' ? proj.period[currentLang] : proj.period) : '';
     const hasMore     = extra.length > 0;
     const extraId     = `extra-${tab}-${i}`;
 
@@ -390,7 +368,6 @@ function renderProjects(tab) {
       <div class="project-card" style="animation-delay:${i * 0.07}s">
         <div class="project-header">
           <span class="project-num">${String(i + 1).padStart(2, '0')}</span>
-          <span class="project-company">${company}</span>
         </div>
         <h3 class="project-title">${proj.title[currentLang]}</h3>
         <div class="project-tags">
@@ -407,10 +384,49 @@ function renderProjects(tab) {
         ${hasMore ? `
           <button class="project-more" onclick="toggleExtra('${extraId}', this, '${showMoreLabel}', '${showLessLabel}')">${showMoreLabel}</button>
         ` : ''}
-        ${period ? `<p style="font-size:.78rem;color:var(--text-dim);margin-top:4px">${period}</p>` : ''}
       </div>
     `;
   }).join('');
+}
+
+function makeCompanyHeader(title, role, period, delay) {
+  return `
+    <div class="project-card" style="animation-delay:${delay}s;border-left:3px solid var(--accent);background:var(--card-alt, var(--card))">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+        <div>
+          <h3 style="font-size:1.1rem;font-weight:700;color:var(--text)">${title}</h3>
+          <p style="font-size:.88rem;color:var(--text-muted);margin-top:2px">${role}</p>
+        </div>
+        <span style="font-size:.85rem;color:var(--accent);font-weight:600">${period}</span>
+      </div>
+    </div>
+  `;
+}
+
+function renderProjects() {
+  const grid = document.getElementById('projectsGrid');
+  const showMoreLabel = i18n[currentLang].show_more;
+  const showLessLabel = i18n[currentLang].show_less;
+
+  const workHeader = makeCompanyHeader(
+    currentLang === 'ru' ? 'ООО «Интеллектуальные Решения»' : 'OOO "Intellektualnye Resheniya"',
+    currentLang === 'ru' ? 'Back-end разработчик / Технический лидер' : 'Back-end Developer / Technical Lead',
+    currentLang === 'ru' ? '2022 — н.в.' : '2022 — Present',
+    0
+  );
+
+  const freelanceHeader = makeCompanyHeader(
+    currentLang === 'ru' ? 'Фриланс' : 'Freelance',
+    currentLang === 'ru' ? 'Руководитель проекта / Back-end разработчик' : 'Project Manager / Back-end Developer',
+    '2025',
+    0
+  );
+
+  grid.innerHTML =
+    workHeader +
+    renderProjectCards(projectsData.work, 'work', showMoreLabel, showLessLabel) +
+    freelanceHeader +
+    renderProjectCards(projectsData.freelance, 'freelance', showMoreLabel, showLessLabel);
 }
 
 function toggleExtra(id, btn, moreLabel, lessLabel) {
@@ -546,13 +562,7 @@ function initLangToggle() {
    TABS
 ══════════════════════════════════════════ */
 function initTabs() {
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderProjects(btn.dataset.tab);
-    });
-  });
+  // Tabs removed — all projects shown on one page
 }
 
 /* ══════════════════════════════════════════
