@@ -136,7 +136,7 @@ const skillsData = [
     skills: ['REST API', 'WebSocket', 'MQTT', 'Swagger'],
   },
   {
-    name:  { en: 'DevOps & Infrastructure', ru: 'DevOps и инфраструктура' },
+    name:  { en: 'DevOps & Security', ru: 'DevOps & Security' },
     icon:  '🐳',
     color: { bg: 'var(--purple-dim)', text: 'var(--purple)', border: 'rgba(139,92,246,.25)' },
     catColor: 'var(--purple)',
@@ -364,7 +364,20 @@ function renderProjects(tab) {
   const showMoreLabel = i18n[currentLang].show_more;
   const showLessLabel = i18n[currentLang].show_less;
 
-  grid.innerHTML = items.map((proj, i) => {
+  // Work tab: show company header
+  const workHeader = tab === 'work' ? `
+    <div class="project-card" style="animation-delay:0s;border-left:3px solid var(--accent);background:var(--card-alt, var(--card))">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+        <div>
+          <h3 style="font-size:1.1rem;font-weight:700;color:var(--text)">${currentLang === 'ru' ? 'ООО «Интеллектуальные Решения»' : 'OOO "Intellektualnye Resheniya"'}</h3>
+          <p style="font-size:.88rem;color:var(--text-muted);margin-top:2px">${currentLang === 'ru' ? 'Back-end разработчик / Технический лидер' : 'Back-end Developer / Technical Lead'}</p>
+        </div>
+        <span style="font-size:.85rem;color:var(--accent);font-weight:600">${currentLang === 'ru' ? '2022 — н.в.' : '2022 — Present'}</span>
+      </div>
+    </div>
+  ` : '';
+
+  grid.innerHTML = workHeader + items.map((proj, i) => {
     const bullets     = proj.bullets[currentLang];
     const preview     = bullets.slice(0, 3);
     const extra       = bullets.slice(3);
