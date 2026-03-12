@@ -389,16 +389,14 @@ function renderProjectCards(items, tab, showMoreLabel, showLessLabel) {
   }).join('');
 }
 
-function makeCompanyHeader(title, role, period, delay) {
+function makeCompanyHeader(title, role, period) {
   return `
-    <div class="project-card" style="animation-delay:${delay}s;border-left:3px solid var(--accent);background:var(--card-alt, var(--card))">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-        <div>
-          <h3 style="font-size:1.1rem;font-weight:700;color:var(--text)">${title}</h3>
-          <p style="font-size:.88rem;color:var(--text-muted);margin-top:2px">${role}</p>
-        </div>
-        <span style="font-size:.85rem;color:var(--accent);font-weight:600">${period}</span>
+    <div class="company-header">
+      <div>
+        <h3>${title}</h3>
+        <p class="company-role">${role}</p>
       </div>
+      <span class="company-period">${period}</span>
     </div>
   `;
 }

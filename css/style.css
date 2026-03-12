@@ -557,6 +557,42 @@ img { max-width: 100%; display: block; }
   gap: 24px;
 }
 
+.company-header {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(249,115,22,.06) 100%);
+  border: 1px solid rgba(249,115,22,.2);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp .5s ease forwards;
+}
+.company-header:not(:first-child) {
+  margin-top: 20px;
+}
+.company-header h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.company-header .company-role {
+  font-size: .88rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.company-header .company-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .85rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
 .project-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
