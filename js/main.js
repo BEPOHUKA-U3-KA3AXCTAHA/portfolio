@@ -126,21 +126,21 @@ const skillsData = [
     icon:  '🗄️',
     color: { bg: 'var(--green-dim)', text: 'var(--green)', border: 'rgba(16,185,129,.25)' },
     catColor: 'var(--green)',
-    skills: ['PostgreSQL', 'Redis', 'RabbitMQ', 'Apache Kafka', 'MQTT'],
+    skills: ['PostgreSQL', 'Redis', 'RabbitMQ', 'Apache Kafka'],
+  },
+  {
+    name:  { en: 'APIs & Protocols', ru: 'API и протоколы' },
+    icon:  '🔌',
+    color: { bg: 'var(--pink-dim)', text: 'var(--pink)', border: 'rgba(236,72,153,.25)' },
+    catColor: 'var(--pink)',
+    skills: ['REST API', 'WebSocket', 'MQTT', 'Swagger'],
   },
   {
     name:  { en: 'DevOps & Infrastructure', ru: 'DevOps и инфраструктура' },
     icon:  '🐳',
     color: { bg: 'var(--purple-dim)', text: 'var(--purple)', border: 'rgba(139,92,246,.25)' },
     catColor: 'var(--purple)',
-    skills: ['Docker', 'Linux', 'Git', 'Bash', 'Keycloak', 'Swagger'],
-  },
-  {
-    name:  { en: 'Protocols', ru: 'Протоколы' },
-    icon:  '🔌',
-    color: { bg: 'var(--pink-dim)', text: 'var(--pink)', border: 'rgba(236,72,153,.25)' },
-    catColor: 'var(--pink)',
-    skills: ['REST API', 'WebSocket'],
+    skills: ['Docker', 'Linux', 'Git', 'Bash', 'Keycloak'],
   },
 ];
 
@@ -154,8 +154,7 @@ const projectsData = {
         en: 'Pump Equipment Control Service',
         ru: 'Сервис контроля насосного оборудования',
       },
-      company: 'ООО «Интеллектуальные Решения»',
-      period: { en: '2022 — Present', ru: '2022 — н.в.' },
+      company: { en: 'OOO "Intellektualnye Resheniya"', ru: 'ООО «Интеллектуальные Решения»' },
       tags: ['Rust', 'MQTT', 'Tokio', 'Microservices'],
       bullets: {
         en: [
@@ -175,8 +174,7 @@ const projectsData = {
         en: 'Market Monitoring & Patent Purity Services',
         ru: 'Сервисы мониторинга рынка и патентной чистоты',
       },
-      company: 'ЗАО «Фармфирма Сотекс»',
-      period: { en: '2022 — Present', ru: '2022 — н.в.' },
+      company: { en: 'OOO "Intellektualnye Resheniya" (for ZAO "Pharmfirma Sotex")', ru: 'ООО «Интеллектуальные Решения» (для ЗАО «Фармфирма Сотекс»)' },
       tags: ['FastAPI', 'SQLAlchemy', 'Pydantic', 'Keycloak', 'Redis', 'PyJWT', 'WebSocket'],
       bullets: {
         en: [
@@ -198,8 +196,7 @@ const projectsData = {
         en: 'Freight Control System',
         ru: 'Система контроля грузоперевозок',
       },
-      company: 'ООО «Интеллектуальные Решения»',
-      period: { en: '2022 — Present', ru: '2022 — н.в.' },
+      company: { en: 'OOO "Intellektualnye Resheniya"', ru: 'ООО «Интеллектуальные Решения»' },
       tags: ['Python', 'RabbitMQ', 'FastAPI', 'WebSocket'],
       bullets: {
         en: [
@@ -221,8 +218,7 @@ const projectsData = {
         en: 'Granulometry Service Web Interface',
         ru: 'WEB-интерфейс сервиса гранулометрии',
       },
-      company: 'ООО «Интеллектуальные Решения»',
-      period: { en: '2022 — Present', ru: '2022 — н.в.' },
+      company: { en: 'OOO "Intellektualnye Resheniya"', ru: 'ООО «Интеллектуальные Решения»' },
       tags: ['Python', 'FastAPI', 'PostgreSQL'],
       bullets: {
         en: [
@@ -238,8 +234,7 @@ const projectsData = {
         en: 'Automated Futures Trading Platform',
         ru: 'Платформа автоматической торговли фьючерсами',
       },
-      company: 'ООО «Интеллектуальные Решения»',
-      period: { en: '2022 — Present', ru: '2022 — н.в.' },
+      company: { en: 'OOO "Intellektualnye Resheniya"', ru: 'ООО «Интеллектуальные Решения»' },
       tags: ['Rust', 'Actix-web', 'Tokio', 'PyO3', 'WebSocket', 'PostgreSQL', 'Redis'],
       bullets: {
         en: [
@@ -263,8 +258,7 @@ const projectsData = {
         en: 'Currency Arbitrage Platform',
         ru: 'Платформа арбитража валют',
       },
-      company: 'ООО «Интеллектуальные Решения»',
-      period: { en: '2022 — Present', ru: '2022 — н.в.' },
+      company: { en: 'OOO "Intellektualnye Resheniya"', ru: 'ООО «Интеллектуальные Решения»' },
       tags: ['Python', 'Rust', 'FastAPI', 'PostgreSQL'],
       bullets: {
         en: [
@@ -375,7 +369,7 @@ function renderProjects(tab) {
     const preview     = bullets.slice(0, 3);
     const extra       = bullets.slice(3);
     const company     = typeof proj.company === 'object' ? proj.company[currentLang] : proj.company;
-    const period      = typeof proj.period  === 'object' ? proj.period[currentLang]  : proj.period;
+    const period      = proj.period ? (typeof proj.period === 'object' ? proj.period[currentLang] : proj.period) : '';
     const hasMore     = extra.length > 0;
     const extraId     = `extra-${tab}-${i}`;
 
@@ -383,7 +377,7 @@ function renderProjects(tab) {
       <div class="project-card" style="animation-delay:${i * 0.07}s">
         <div class="project-header">
           <span class="project-num">${String(i + 1).padStart(2, '0')}</span>
-          <span class="project-company">${period}</span>
+          <span class="project-company">${company}</span>
         </div>
         <h3 class="project-title">${proj.title[currentLang]}</h3>
         <div class="project-tags">
@@ -400,7 +394,7 @@ function renderProjects(tab) {
         ${hasMore ? `
           <button class="project-more" onclick="toggleExtra('${extraId}', this, '${showMoreLabel}', '${showLessLabel}')">${showMoreLabel}</button>
         ` : ''}
-        <p style="font-size:.78rem;color:var(--text-dim);margin-top:4px">${company}</p>
+        ${period ? `<p style="font-size:.78rem;color:var(--text-dim);margin-top:4px">${period}</p>` : ''}
       </div>
     `;
   }).join('');
