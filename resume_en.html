@@ -5,51 +5,52 @@
 <style>
 @page {
   size: A4;
-  margin: 14mm 16mm 14mm 16mm;
+  margin: 8mm 13mm 8mm 11mm;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Times New Roman', 'DejaVu Serif', Georgia, serif;
-  font-size: 10pt;
+  font-size: 9.5pt;
   line-height: 1.32;
   color: #111;
 }
 a { color: #111; text-decoration: none; }
 
 /* ── HEADER ── */
-.header { text-align: center; margin-bottom: 6pt; }
+.header { text-align: center; margin-bottom: 5pt; }
 .name { font-size: 15pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5pt; margin-bottom: 3pt; }
 .contacts { font-size: 9.5pt; color: #222; }
 .contacts a { text-decoration: underline; }
 
-hr { border: none; border-top: 0.8pt solid #222; margin: 5pt 0 6pt; }
+hr { border: none; border-top: 0.8pt solid #222; margin: 4pt 0 5pt; }
 
 /* ── SECTIONS ── */
 .section-title {
   font-size: 11pt;
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 5pt;
+  margin-bottom: 4pt;
   letter-spacing: 0.3pt;
 }
-.subsection { margin-bottom: 6pt; }
+.subsection { margin-bottom: 5pt; }
 
 /* ── WORK ENTRIES ── */
-.entry { margin-bottom: 6pt; }
+.entry { margin-bottom: 5pt; }
 .entry-header { margin-bottom: 2pt; }
 .entry-dates { font-weight: normal; }
 .entry-role { font-weight: bold; }
-.entry-desc { font-style: normal; color: #222; }
 
 .project-title { font-weight: bold; font-style: italic; display: inline; }
 .project-role { font-weight: bold; color: #333; }
 
-ul { margin-left: 18pt; margin-top: 1pt; margin-bottom: 3pt; }
-li { margin-bottom: 1pt; }
+/* Projects indented relative to entry-header */
+.entry p { margin-left: 12pt; }
+ul { margin-left: 30pt; margin-top: 1pt; margin-bottom: 2pt; }
+li { margin-bottom: 0.5pt; }
 
 /* ── SKILLS ── */
 .skills-block { margin-bottom: 4pt; }
-.skills-block p { margin-bottom: 1.5pt; }
+.skills-block p { margin-bottom: 1.5pt; margin-left: 0; }
 .skill-cat { font-weight: bold; }
 
 /* ── EDUCATION ── */
@@ -71,7 +72,7 @@ li { margin-bottom: 1pt; }
 <!-- PROFILE SUMMARY -->
 <div class="subsection">
   <div class="section-title">Profile Summary</div>
-  <p>Back-end developer specializing in Python and Rust with 4 years of commercial experience.</p>
+  <p style="margin-left:0">Back-end developer specializing in Python and Rust with 4 years of commercial experience.</p>
 </div>
 <hr/>
 
@@ -82,25 +83,25 @@ li { margin-bottom: 1pt; }
   <div class="entry">
     <div class="entry-header">
       <span class="entry-dates">2022 – Present:</span>&nbsp;
-      <span class="entry-role">Back-end Developer / Technical Lead</span>, OOO "Intellektualnye Resheniya", Russia.
+      <span class="entry-role">Back-end Developer / Technical Lead</span>, Intelligent Solutions, Russia.
     </div>
 
-    <p style="margin-top:3pt"><span class="project-title">1. Pump Equipment Control Service</span> — IoT system for city water supply monitoring. <span class="project-role">Architect</span></p>
+    <p style="margin-top:3pt"><span class="project-title">1. Pump Equipment Control Service</span> project — IoT system for city water supply monitoring. <span class="project-role">Architect</span></p>
     <ul>
       <li>Designed system architecture from scratch, defining microservices interaction model for monitoring and managing pump equipment in city water supply</li>
       <li>Implemented Rust services with MQTT bus for receiving, processing, and routing telemetry</li>
       <li>Added weather data integration microservice for climate-aware analysis</li>
     </ul>
 
-    <p><span class="project-title">2. Market Monitoring &amp; Patent Purity Services</span> (for ZAO "Pharmfirma Sotex") — <span class="project-role">Technical Lead</span></p>
+    <p><span class="project-title">2. Market Monitoring &amp; Patent Purity Services</span> project — <span class="project-role">Technical Lead</span></p>
     <ul>
       <li>Defined technical decisions, conducted code review, ensured code quality and architectural principles</li>
-      <li>Designed project architecture from scratch (hexagonal), ensuring scalability and domain logic isolation</li>
+      <li>Designed hexagonal architecture from scratch, ensuring scalability and domain logic isolation</li>
       <li>Built backend: FastAPI + Pydantic + SQLAlchemy (async), authentication via Keycloak + Redis + JWT</li>
       <li>Implemented real-time monitoring of long-running operations via WebSocket</li>
     </ul>
 
-    <p><span class="project-title">3. Freight Control System</span></p>
+    <p><span class="project-title">3. Freight Control System</span> project</p>
     <ul>
       <li>Built document revocation verification process for vehicles using RabbitMQ queues</li>
       <li>Extended driver mobile app backend: routing, authorization, shipment staging, deviation tracking</li>
@@ -108,21 +109,21 @@ li { margin-bottom: 1pt; }
       <li>Implemented driver tracking at checkpoints via web interface</li>
     </ul>
 
-    <p><span class="project-title">4. Granulometry Service Web Interface</span></p>
+    <p><span class="project-title">4. Granulometry Service Web Interface</span> project</p>
     <ul>
       <li>Optimized data archiving and historical data export mechanism</li>
     </ul>
 
-    <p><span class="project-title">5. Automated Futures Trading Platform</span> — microservices-based system for algorithmic trading via external APIs.</p>
+    <p><span class="project-title">5. Automated Futures Trading Platform</span> project — microservices-based system for algorithmic trading via external APIs.</p>
     <ul>
       <li>Automated collection and processing of market data from external trading platforms via API</li>
-      <li>Built Rust microservice (Actix-web + Tokio) implementing trading algorithm business logic with async processing</li>
+      <li>Built Rust microservice (Actix-web + Tokio) for trading algorithm business logic with async processing</li>
       <li>Designed algorithm configuration mechanism with parallel execution support</li>
       <li>Implemented PnL tracking system and paper trading (simulation) mode for strategy validation</li>
-      <li>Significantly improved trading algorithm execution speed via multithreading, PyO3, and WebSocket, reducing reaction time (from market data change on exchange to trading decision) from 2 seconds to 100 ms</li>
+      <li>Significantly improved trading algorithm execution speed via multithreading, PyO3, and WebSocket, reducing reaction time (from market data change on exchange to trading decision) from 2 sec to 100 ms</li>
     </ul>
 
-    <p><span class="project-title">6. Currency Arbitrage Platform</span> — smart currency exchange platform.</p>
+    <p><span class="project-title">6. Currency Arbitrage Platform</span> project — smart currency exchange platform.</p>
     <ul>
       <li>Automated periodic currency data aggregation from various exchange platforms using Python</li>
       <li>Developed Rust microservice for detecting transfer chains based on aggregated currency data</li>
@@ -131,7 +132,7 @@ li { margin-bottom: 1pt; }
 
   </div>
 
-  <div class="entry" style="margin-top:8pt">
+  <div class="entry" style="margin-top:5pt">
     <div class="entry-header">
       <span class="entry-dates">2025:</span>&nbsp;
       <span class="entry-role">Project Manager / Back-end Developer</span>, independent commercial project (freelance).
@@ -139,7 +140,7 @@ li { margin-bottom: 1pt; }
 
     <p style="margin-top:3pt"><span class="project-title">Cryptocurrency Portfolio Management Service</span></p>
     <ul>
-      <li>Led backend development, coordinated frontend/DevOps team of 3, managed client requirements and architecture</li>
+      <li>Led backend development, coordinated frontend/DevOps team of 3, managed client requirements &amp; architecture</li>
       <li>Designed backend from scratch using hexagonal architecture, ensuring scalability and business logic isolation</li>
       <li>Built backend: FastAPI + Uvicorn, async SQLAlchemy, Dishka DI, aiohttp, PyJWT</li>
     </ul>
@@ -163,14 +164,13 @@ li { margin-bottom: 1pt; }
 <!-- EDUCATION -->
 <div class="subsection">
   <div class="section-title">Education</div>
-  <div class="edu-entry">2020 – 2026: <strong>Specialist Degree in Computer Security</strong> (10.05.01), Saratov National Research State University (N.G. Chernyshevsky), Faculty of Computer Science and IT.</div>
+  <div class="edu-entry">2020 – 2026: <strong>Specialist Degree in Computer Security</strong>, Saratov National Research State University (N.G. Chernyshevsky), Faculty of Computer Science and IT.</div>
 </div>
 <hr/>
 
 <!-- LANGUAGES -->
-<div class="subsection">
-  <div class="section-title">Languages</div>
-  <p><strong>English:</strong> B2 &nbsp;&nbsp; <strong>Russian:</strong> Native</p>
+<div class="subsection" style="margin-bottom:0">
+  <p style="margin-left:0"><span style="font-weight:bold; text-transform:uppercase; font-size:11pt; letter-spacing:0.3pt">Languages:</span> &nbsp;<strong>English:</strong> B2 &nbsp;&nbsp;&nbsp; <strong>Russian:</strong> Native</p>
 </div>
 
 </body>

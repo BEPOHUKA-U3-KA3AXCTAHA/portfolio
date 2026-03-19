@@ -26,7 +26,7 @@ const i18n = {
 
     /* Education */
     edu_degree:  'Specialist Degree',
-    edu_field:   'Computer Security (10.05.01)',
+    edu_field:   'Computer Security',
     edu_uni:     'Saratov State University named after N.G. Chernyshevsky',
     edu_faculty: 'Faculty of Computer Science and IT',
 
@@ -75,7 +75,7 @@ const i18n = {
 
     /* Education */
     edu_degree:  'Специалитет',
-    edu_field:   'Компьютерная безопасность (10.05.01)',
+    edu_field:   'Компьютерная безопасность',
     edu_uni:     'Саратовский национальный исследовательский государственный университет им. Н.Г. Чернышевского',
     edu_faculty: 'Факультет компьютерных наук и информационных технологий',
 
@@ -154,7 +154,7 @@ const projectsData = {
         en: 'Pump Equipment Control Service',
         ru: 'Сервис контроля насосного оборудования',
       },
-      company: { en: 'OOO "Intellektualnye Resheniya"', ru: 'ООО «Интеллектуальные Решения»' },
+      company: { en: 'Intelligent Solutions', ru: 'ООО «Интеллектуальные Решения»' },
       tags: ['Rust', 'MQTT', 'Tokio', 'Microservices'],
       bullets: {
         en: [
@@ -174,7 +174,7 @@ const projectsData = {
         en: 'Market Monitoring & Patent Purity Services',
         ru: 'Сервисы мониторинга рынка и патентной чистоты',
       },
-      company: { en: 'OOO "Intellektualnye Resheniya" (for ZAO "Pharmfirma Sotex")', ru: 'ООО «Интеллектуальные Решения» (для ЗАО «Фармфирма Сотекс»)' },
+      company: { en: 'Intelligent Solutions', ru: 'ООО «Интеллектуальные Решения»' },
       tags: ['FastAPI', 'SQLAlchemy', 'Pydantic', 'Keycloak', 'Redis', 'PyJWT', 'WebSocket'],
       bullets: {
         en: [
@@ -196,7 +196,7 @@ const projectsData = {
         en: 'Freight Control System',
         ru: 'Система контроля грузоперевозок',
       },
-      company: { en: 'OOO "Intellektualnye Resheniya"', ru: 'ООО «Интеллектуальные Решения»' },
+      company: { en: 'Intelligent Solutions', ru: 'ООО «Интеллектуальные Решения»' },
       tags: ['Python', 'RabbitMQ', 'FastAPI', 'WebSocket'],
       bullets: {
         en: [
@@ -218,7 +218,7 @@ const projectsData = {
         en: 'Granulometry Service Web Interface',
         ru: 'WEB-интерфейс сервиса гранулометрии',
       },
-      company: { en: 'OOO "Intellektualnye Resheniya"', ru: 'ООО «Интеллектуальные Решения»' },
+      company: { en: 'Intelligent Solutions', ru: 'ООО «Интеллектуальные Решения»' },
       tags: ['Python', 'FastAPI', 'PostgreSQL'],
       bullets: {
         en: [
@@ -234,7 +234,7 @@ const projectsData = {
         en: 'Automated Futures Trading Platform',
         ru: 'Платформа автоматической торговли фьючерсами',
       },
-      company: { en: 'OOO "Intellektualnye Resheniya"', ru: 'ООО «Интеллектуальные Решения»' },
+      company: { en: 'Intelligent Solutions', ru: 'ООО «Интеллектуальные Решения»' },
       tags: ['Rust', 'Actix-web', 'Tokio', 'PyO3', 'WebSocket', 'PostgreSQL', 'Redis'],
       bullets: {
         en: [
@@ -258,7 +258,7 @@ const projectsData = {
         en: 'Currency Arbitrage Platform',
         ru: 'Платформа арбитража валют',
       },
-      company: { en: 'OOO "Intellektualnye Resheniya"', ru: 'ООО «Интеллектуальные Решения»' },
+      company: { en: 'Intelligent Solutions', ru: 'ООО «Интеллектуальные Решения»' },
       tags: ['Python', 'Rust', 'FastAPI', 'PostgreSQL'],
       bullets: {
         en: [
@@ -407,7 +407,7 @@ function renderProjects() {
   const showLessLabel = i18n[currentLang].show_less;
 
   const workHeader = makeCompanyHeader(
-    currentLang === 'ru' ? 'ООО «Интеллектуальные Решения»' : 'OOO "Intellektualnye Resheniya"',
+    currentLang === 'ru' ? 'ООО «Интеллектуальные Решения»' : 'Intelligent Solutions',
     currentLang === 'ru' ? 'Back-end разработчик / Технический лидер' : 'Back-end Developer / Technical Lead',
     currentLang === 'ru' ? '2022 — н.в.' : '2022 — Present',
     0
